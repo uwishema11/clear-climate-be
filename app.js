@@ -4,7 +4,8 @@ const morgan =require('morgan');
 const cors=require("cors");
 const userRouter= require('./routers/userRouter');
 const projectRouter = require ('./routers/projectsRouter');
-const blogRouter = require ('./routers/blogsRouter')
+const blogRouter = require ('./routers/blogsRouter');
+const reviewRouter = require('./routers/reviewRouter')
 const AppError= require ('./utils/appError');
 
 
@@ -18,6 +19,7 @@ app.enable('trust proxy');
 
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/projects',projectRouter);
+app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/blogs',blogRouter);
 
 

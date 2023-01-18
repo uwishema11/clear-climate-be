@@ -27,8 +27,18 @@ const postSchema=mongoose.Schema({
         required:true,
     },
     isPublished:Boolean
- });
+ },
+ {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+ );
  
+ postSchema.virtual('reviews',{
+    ref: 'Review',
+    foreignField :'post',
+    localField: '_id'
+ });
 
 const Post = mongoose.model("Post", postSchema);
  
